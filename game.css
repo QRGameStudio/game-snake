@@ -9,14 +9,8 @@ body {
 .playground {
   background-color: yellowgreen;
   position: absolute;
-  width: 80vw;
-  height: 80vh;
-  left: 9vw;
   top: 9vh;
-  border-left: 1vw solid black;
-  border-right: 1vw solid black;
-  border-top: 1vh solid black;
-  border-bottom: 1vh solid black;
+  border: 8px solid black;
 }
 
 .dirBtn {
@@ -39,14 +33,10 @@ body {
   position: absolute;
   background-color: green;
   border: 1px solid black;
-  width: 8vw;
-  height: 8vh;
 }
 
 .food {
   position: absolute;
   background-color: red;
   border: 1px solid black;
-  width: 8vw;
-  height: 8vh;
 }

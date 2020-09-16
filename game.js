@@ -22,14 +22,15 @@ const genFood = () => {
 
 const drawSnake = () => {
   playground.innerHTML = "";
+  w = Math.floor(0.1 * (playground.getBoundingClientRect().width - 16));
   const e = document.createElement("div");
   e.className = "food";
-  e.style = `left: ${8 * food[0]}vw; top: ${8 * food[1]}vh`;
+  e.style = `left: ${w * food[0]}px; top: ${w * food[1]}px; width: ${w - 2}px; height: ${w - 2}px`;
   playground.appendChild(e);
   snake.forEach((part) => {
     const e = document.createElement("div");
     e.className = "snakePart";
-    e.style = `left: ${8 * part[0]}vw; top: ${8 * part[1]}vh`;
+    e.style = `left: ${w * part[0]}px; top: ${w * part[1]}px; width: ${w - 2}px; height: ${w - 2}px`;
     playground.appendChild(e);
   });
 };
@@ -65,9 +66,15 @@ const sleep = (sleepDuration) => {
 
 const init = () => {
   document.body.innerHTML = "";
+  const width = Math.floor(
+    Math.min(document.body.getBoundingClientRect().width, document.body.getBoundingClientRect().height) * 0.8
+  );
 
   playground = document.createElement("div");
   playground.className = "playground";
+  playground.style = `width: ${width}px; height: ${width}px; left: ${Math.floor(
+    (document.body.getBoundingClientRect().width - width) / 2
+  )}px`;
   document.body.appendChild(playground);
 
   ["left", "right"].forEach((dir) => {
