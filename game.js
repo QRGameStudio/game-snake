@@ -65,23 +65,24 @@ const sleep = (sleepDuration) => {
 };
 
 const init = () => {
-  document.body.innerHTML = "";
+  const content = document.getElementById('game-content');
+  content.innerHTML = "";
   const width = Math.floor(
-    Math.min(document.body.getBoundingClientRect().width, document.body.getBoundingClientRect().height) * 0.8
+    Math.min(content.getBoundingClientRect().width, content.getBoundingClientRect().height) * 0.8
   );
 
   playground = document.createElement("div");
   playground.className = "playground";
   playground.style = `width: ${width}px; height: ${width}px; left: ${Math.floor(
-    (document.body.getBoundingClientRect().width - width) / 2
+    (content.getBoundingClientRect().width - width) / 2
   )}px`;
-  document.body.appendChild(playground);
+  content.appendChild(playground);
 
   ["left", "right"].forEach((dir) => {
     const btn = document.createElement("div");
     btn.className = "dirBtn " + dir;
     btn.onclick = () => changeDirection(dir);
-    document.body.appendChild(btn);
+    content.appendChild(btn);
   });
 
   direction = "UP";
