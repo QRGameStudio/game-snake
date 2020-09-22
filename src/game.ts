@@ -13,7 +13,7 @@ class Game {
     this.snake = new Snake();
     this.food = new Food(this.snake);
     this.gameView = new GameView(this, contentElement);
-    this.highScore = this.loadHighScore();
+    this.loadHighScore();
   }
 
   private testGameOver = () => {
@@ -42,11 +42,13 @@ class Game {
   };
 
   private saveHighScore = () => {
-    localStorage.setItem("QRSnakeHS", Math.max(this.getScore(), this.highScore).toString());
+    // @ts-ignore
+    new GStorage("QRSnk").set("HS", Math.max(this.getScore(), this.highScore).toString());
   };
 
   private loadHighScore = () => {
-    return parseInt(localStorage.getItem("QRSnakeHS") || "0");
+    // @ts-ignore
+    new GStorage("QRSnk").get("HS", 0).then((h) => (this.highScore = parseInt(h)));
   };
 
   getHighScore = () => this.highScore;

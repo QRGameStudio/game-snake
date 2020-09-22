@@ -57,14 +57,14 @@ class GameView {
   private drawSnake = () => {
     this.game.snake.getBody().forEach((part) => {
       const e = document.createElement("div");
-      e.className = "snakePart";
+      e.className = "snkPart";
       this.setRectDimensions(e, part);
       this.playground.appendChild(e);
     });
   };
 
   private updateScore = () => {
-    this.scoreBox.innerHTML = `SCORE: ${this.game.getScore()} (${this.game.getHighScore()})`;
+    this.scoreBox.innerHTML = `SCORE: ${this.game.getScore()} (${this.game.getHighScore() || 0})`;
   };
 
   draw = () => {
