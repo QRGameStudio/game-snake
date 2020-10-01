@@ -29,6 +29,8 @@ const init = () => {
 };
 
 const tick = (game: Game) => {
+  // @ts-ignore
+  applyTheme();
   if (game.tick()) {
     gameOver();
   } else {
