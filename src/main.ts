@@ -30,7 +30,7 @@ const init = () => {
 
 const tick = (game: Game) => {
   // @ts-ignore
-  applyTheme();
+  new GTheme().apply();
   if (game.tick()) {
     gameOver();
   } else {
