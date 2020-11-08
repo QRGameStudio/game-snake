@@ -17,6 +17,7 @@ class Game {
   }
 
   private testGameOver = () => {
+    if (this.snake.getLength() >= 100) return true;
     if (
       this.snake.getBody()[0][0] < 0 ||
       this.snake.getBody()[0][0] > 9 ||
@@ -37,7 +38,7 @@ class Game {
   private eat = () => {
     if (this.food.position[0] === this.snake.getBody()[0][0] && this.food.position[1] === this.snake.getBody()[0][1]) {
       this.snake.grow();
-      this.food.regenerate();
+      if (this.snake.getLength() < 100) this.food.regenerate();
     }
   };
 

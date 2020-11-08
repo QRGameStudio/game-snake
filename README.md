@@ -1,4 +1,4 @@
-# snake
+# Snake
 
 ## Try it
-[QR code](https://api.qgo.eu/game/snake/image?s=SNAKEYR)
+![QR code](https://api.qgo.eu/game/qrs.snake/image?s=SNAKEYR)
