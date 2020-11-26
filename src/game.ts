@@ -39,6 +39,8 @@ class Game {
     if (this.food.position[0] === this.snake.getBody()[0][0] && this.food.position[1] === this.snake.getBody()[0][1]) {
       this.snake.grow();
       if (this.snake.getLength() < 100) this.food.regenerate();
+      // @ts-ignore
+      new GSongLib().play("good");
     }
   };
 
@@ -61,6 +63,8 @@ class Game {
     this.eat();
     if (this.testGameOver()) {
       this.saveHighScore();
+      // @ts-ignore
+      new GSongLib().play("fail");
       return true;
     }
     this.gameView.draw();
